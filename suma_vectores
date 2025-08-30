@@ -1,0 +1,71 @@
+# Representacion de la memoria como diccionarios [{direccion: contenido}, ...]
+def crear_memoria(vectorA, vectorB, base_vect_A=0, base_vect_B=10, base_result=20):
+    memoria = []
+    #vector A
+    for i, val in enumerate(vectorA):
+        memoria.append({base_vect_A + i: val})
+    #vector B
+    for i, val in enumerate(vectorB):
+        memoria.append({base_vect_B + i: val})
+    # guardar el resultado en la memoria
+    for i in range(len(vectorA)):
+        memoria.append({base_result + i: 0})
+    return memoria
+
+#-----------------------Comportamiento en CISC-----------------------------
+def ejecutar_cisc(memoria, base_vect_A=0, base_vect_B=10, base_result=20, n=10):
+    instrucciones = 0
+    ciclos = 0
+    for i in range(n):
+        # SUMMEM
+        val_a = memoria[base_vect_A + i][base_vect_A + i]
+        val_b = memoria[base_vect_B + i][base_vect_B + i]
+        resultado = val_a + val_b
+        memoria[base_result + i][base_result + i] = resultado
+        instrucciones += 1
+        ciclos += 3  # Cada SUMMEM tarda 3 ciclos
+    return instrucciones, ciclos, memoria
+
+#-----------------------Comportamiento en RISC-----------------------------
+def ejecutar_risc(memoria, base_vect_A=0, base_vect_B=10, base_result=20, n=10):
+    instrucciones = 0
+    ciclos = 0
+    for i in range(n):
+        # LOAD A
+        reg_a = memoria[base_vect_A + i][base_vect_A + i]
+        instrucciones += 1
+        ciclos += 1
+        # LOAD B
+        reg_b = memoria[base_vect_B + i][base_vect_B + i]
+        instrucciones += 1
+        ciclos += 1
+        # ADD
+        reg_res = reg_a + reg_b
+        instrucciones += 1
+        ciclos += 1
+        # STORE
+        memoria[base_result + i][base_result + i] = reg_res
+        instrucciones += 1
+        ciclos += 1
+    return instrucciones, ciclos, memoria
+
+#----------------------------Test--------------------------------
+if __name__ == "__main__":
+    vectorA = list(range(1, 11))        # [1, 2, ..., 10]
+    vectorB = list(range(11, 21))       # [11, 12, ..., 20]
+    memoria_cisc = crear_memoria(vectorA, vectorB)
+    memoria_risc = crear_memoria(vectorA, vectorB)
+
+    print("-----------------------Comportamiento en CISC-----------------------------")
+    inst_cisc, ciclos_cisc, mem_cisc = ejecutar_cisc(memoria_cisc)
+    print(f"Instrucciones ejecutadas: {inst_cisc}")
+    print(f"Ciclos totales: {ciclos_cisc}")
+    print("Resultado del vector en memoria:")
+    print([mem_cisc[20 + i][20 + i] for i in range(10)])
+
+    print("\n-----------------------Comportamiento en RISC-----------------------------")
+    inst_risc, ciclos_risc, mem_risc = ejecutar_risc(memoria_risc)
+    print(f"Instrucciones ejecutadas: {inst_risc}")
+    print(f"Ciclos totales: {ciclos_risc}")
+    print("Resultado del vector en memoria:")
+    print([mem_risc[20 + i][20 + i] for i in range(10)])
