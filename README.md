@@ -22,6 +22,11 @@ La predictibilidad de los tiempos de ejecución es fundamental en:
   En estos casos, la sincronización y el balanceo de carga requieren que las operaciones tengan duraciones predecibles para evitar cuellos de botella y bloqueos.
 
 ---
+### Resultados de ejecución del programa de Python sobre el comportamiento de RISC y CISC
+
+Los vectores iniciales 
+![Diagrama de arquitectura](https://media.discordapp.net/attachments/751659039133270056/1411234870646013992/image.png?ex=68b3ea64&is=68b298e4&hm=c873ff974956e4261c6ca4b44e741e1caf63a21f5deaa3000b512c6d617eb810&=&format=webp&quality=lossless&width=910&height=420)
+---
 
 ### Referencias
 
