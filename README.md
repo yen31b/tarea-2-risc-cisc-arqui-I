@@ -26,8 +26,7 @@ La predictibilidad de los tiempos de ejecución es fundamental en:
 ### Referencias
 
 1. [¿Qué es la arquitectura RISC? - IBM Documentation](https://www.ibm.com/docs/es/aix/7.2?topic=architectures-risc-architecture)
-2. [Why is RISC architecture more predictable than CISC in execution time? (Stack Overflow)](https://stackoverflow.com/questions/76721312/why-is-risc-architecture-more-predictable-than-cisc-in-execution-time)
+2. [David A. Patterson, John L. Hennessy. Digital Design and Computer Architecture: RISC-V Edition](https://mrce.in/ebooks/Digital%20Design%20&%20Computer%20Architecture%20RISC-V%20Edition.pdf)
 3. [RISC vs. CISC Architectures - GeeksforGeeks](https://www.geeksforgeeks.org/difference-between-risc-and-cisc-architecture/)
-3. [Real-Time Systems: Predictability and RISC (Embedded.com)](https://www.embedded.com/making-real-time-systems-predictable/)
-
+5. [Why is RISC architecture more predictable than CISC in execution time? (Stack Overflow)](https://stackoverflow.com/questions/76721312/why-is-risc-architecture-more-predictable-than-cisc-in-execution-time) 
 ---
