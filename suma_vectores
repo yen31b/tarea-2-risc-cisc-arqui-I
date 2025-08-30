@@ -53,10 +53,17 @@ def ejecutar_risc(memoria, base_vect_A=0, base_vect_B=10, base_result=20, n=10):
 if __name__ == "__main__":
     vectorA = list(range(1, 11)) 
     vectorB = list(range(11, 21))
+
+    # Mostrar vectores iniciales
+    print("Vector A:", vectorA)
+    print("Vector B:", vectorB)
+
     memoria_cisc = crear_memoria(vectorA, vectorB)
     memoria_risc = crear_memoria(vectorA, vectorB)
 
-    print("-----------------------Comportamiento en CISC-----------------------------")
+
+
+    print("\n-----------------------Comportamiento en CISC-----------------------------")
     inst_cisc, ciclos_cisc, mem_cisc = ejecutar_cisc(memoria_cisc)
     print(f"Instrucciones ejecutadas: {inst_cisc}")
     print(f"Ciclos totales: {ciclos_cisc}")
