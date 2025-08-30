@@ -23,7 +23,7 @@ def ejecutar_cisc(memoria, base_vect_A=0, base_vect_B=10, base_result=20, n=10):
         resultado = val_a + val_b
         memoria[base_result + i][base_result + i] = resultado
         instrucciones += 1
-        ciclos += 3  # Cada SUMMEM tarda 3 ciclos
+        ciclos += 3  # SUMMEM (CISC) tarda 3 ciclos
     return instrucciones, ciclos, memoria
 
 #-----------------------Comportamiento en RISC-----------------------------
@@ -34,25 +34,25 @@ def ejecutar_risc(memoria, base_vect_A=0, base_vect_B=10, base_result=20, n=10):
         # LOAD A
         reg_a = memoria[base_vect_A + i][base_vect_A + i]
         instrucciones += 1
-        ciclos += 1
+        ciclos += 1 # cada instruccion RISC tarda 1 ciclo
         # LOAD B
         reg_b = memoria[base_vect_B + i][base_vect_B + i]
         instrucciones += 1
-        ciclos += 1
+        ciclos += 1 # cada instruccion RISC tarda 1 ciclo
         # ADD
         reg_res = reg_a + reg_b
         instrucciones += 1
-        ciclos += 1
+        ciclos += 1 # cada instruccion RISC tarda 1 ciclo
         # STORE
         memoria[base_result + i][base_result + i] = reg_res
         instrucciones += 1
-        ciclos += 1
+        ciclos += 1 # cada instruccion RISC tarda 1 ciclo
     return instrucciones, ciclos, memoria
 
 #----------------------------Test--------------------------------
 if __name__ == "__main__":
-    vectorA = list(range(1, 11))        # [1, 2, ..., 10]
-    vectorB = list(range(11, 21))       # [11, 12, ..., 20]
+    vectorA = list(range(1, 11)) 
+    vectorB = list(range(11, 21))
     memoria_cisc = crear_memoria(vectorA, vectorB)
     memoria_risc = crear_memoria(vectorA, vectorB)
 
