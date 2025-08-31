@@ -18,15 +18,33 @@ La predictibilidad de los tiempos de ejecución es fundamental en:
 - **Sistemas en tiempo real:**  
   Donde se deben cumplir plazos estrictos para la ejecución de ciertas tareas. Un sistema impredecible puede causar fallos críticos.
 
-- **Aplicaciones concurrentes o de alto paralelismo:**  
+- **Aplicaciones concurrentes o que utilizan paralelismo:**  
   En estos casos, la sincronización y el balanceo de carga requieren que las operaciones tengan duraciones predecibles para evitar cuellos de botella y bloqueos.
 
 ---
 ### Resultados de ejecución del programa de Python sobre el comportamiento de RISC y CISC
 
-Los vectores iniciales 
-![Diagrama de arquitectura](https://media.discordapp.net/attachments/751659039133270056/1411234870646013992/image.png?ex=68b3ea64&is=68b298e4&hm=c873ff974956e4261c6ca4b44e741e1caf63a21f5deaa3000b512c6d617eb810&=&format=webp&quality=lossless&width=910&height=420)
----
+Los vectores iniciales utilizados para la simulación son:
+
+- **Vector A**: `[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]`
+- **Vector B**: `[11, 12, 13, 14, 15, 16, 17, 18, 19, 20]`
+
+La siguiente imagen muestra la salida del programa ejecutando la suma de los dos vectores para comportamiento en CISC y RISC:
+
+![Resultados de la suma de vectores en CISC y RISC](https://media.discordapp.net/attachments/751659039133270056/1411234870646013992/image.png?ex=68b3ea64&is=68b298e4&hm=c873ff974956e4261c6ca4b44e741e1caf63a21f5deaa3000b512c6d617eb810&=&format=webp&quality=lossless&width=910&height=420)
+
+- **Resultado del vector suma** (para ambas arquitecturas):  
+  `[12, 14, 16, 18, 20, 22, 24, 26, 28, 30]`
+
+- **CISC**  
+  - Instrucciones ejecutadas: **10** (una instrucción SUMMEM por elemento)
+  - Ciclos totales: **30** (cada instrucción SUMMEM tarda 3 ciclos)
+
+- **RISC**  
+  - Instrucciones ejecutadas: **40** (4 instrucciones por elemento: LOAD, LOAD, ADD, STORE)
+  - Ciclos totales: **40** (cada instrucción RISC tarda 1 ciclo)
+
+A partir de estos resultados se muestra cómo, aunque RISC ejecuta más instrucciones para lograr la misma tarea, el tiempo por instrucción es uniforme y predecible, mientras que CISC puede ser más eficiente en cantidad de instrucciones pero con instrucciones individuales más complejas y costosas en ciclos.
 
 ### Referencias
 
